@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
     <h3>22</h3>
+    <div class="dd">
+      111
+      <p>222</p>
+    </div>
   </div>
 </template>
 
@@ -14,7 +18,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 h3 {
   margin: 3px 0 0;
   display: flex;
@@ -29,5 +33,10 @@ li {
 }
 a {
   color: #42b983;
+}
+.dd {
+  p {
+    font-size: 120px;
+  }
 }
 </style>

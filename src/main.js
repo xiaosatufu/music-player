@@ -1,23 +1,13 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueRouter from 'vue-router'
+import router from './router'
+
+import "../src/assets/styles/reset.scss"
+import "../src/assets/font-icon/iconfont.css"
 
 Vue.config.productionTip = false
 
 
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
-
-const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
-]
-
-
-const router = new VueRouter({
-  routes // (缩写) 相当于 routes: routes
-})
-Vue.use(VueRouter)
 new Vue({
   router,
   render: h => h(App),
