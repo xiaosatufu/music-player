@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- home page -->
-    <header :class="$style.header">
+    <!-- <header :class="$style.header">
       <div :class="$style.left">
         <span :class="$style.iconfont" class="iconfont">&#xe6b7;</span>
       </div>
@@ -14,11 +14,30 @@
       <div :class="$style.right">
         <span :class="$style.iconfont" class="iconfont">&#xe629;</span>
       </div>
-    </header>
+    </header>-->
 
-    <swiper-item :banner="banner" v-if="banner.length>0">
+    <top-header :class="$style.header">
+      <template v-slot:left>
+        <div :class="$style.left">
+          <span :class="$style.iconfont" class="iconfont">&#xe6b7;</span>
+        </div>
+      </template>
+      <template v-slot:main>
+        <div :class="$style.main">
+          <div :class="$style.input">
+            <span class="iconfont" :class="$style.iconfont">&#xe66f;</span>
+            <input type="text" placeholder="搜索音乐、视频、歌词、电台">
+          </div>
+        </div>
+      </template>
+      <template v-slot:right>
+        <div :class="$style.right">
+          <span :class="$style.iconfont" class="iconfont">&#xe629;</span>
+        </div>
+      </template>
+    </top-header>
 
-    </swiper-item>
+    <swiper-item :banner="banner" v-if="banner.length>0"></swiper-item>
 
     <!-- <div :class="$style.pannel">
       <div :class="$style.item" class="item">
@@ -86,18 +105,20 @@
         </div>
         <p>账号</p>
       </div>
-    </div> -->
+    </div>-->
   </div>
 </template>
 
 <script>
 import { getBanner } from "@/request/api";
 
-import SwiperItem from '@/components/base/SwiperItem/index.vue'
+import SwiperItem from "@/components/base/SwiperItem/index.vue";
+import TopHeader from "@/components/base/TopHeader";
 
 export default {
   components: {
-    SwiperItem
+    SwiperItem,
+    TopHeader
   },
   data() {
     return {
@@ -110,8 +131,7 @@ export default {
       }
     };
   },
-  computed: {
-  },
+  computed: {},
   mounted() {
     this.initBanner();
     // this.swiper.slideTo(3, 1000, false);
@@ -133,10 +153,10 @@ export default {
 </style>
 <style module lang="scss">
 .fixed {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .pannel {
   margin-top: 30px;
@@ -184,6 +204,7 @@ export default {
         box-sizing: border-box;
         color: #999;
         height: 100%;
+        font-size: 12px;
       }
     }
   }
