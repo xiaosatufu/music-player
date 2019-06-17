@@ -10,7 +10,12 @@
     </div>-->
     <pannel-item :class="$style.footer">
       <ul>
-        <li v-for="(item,index) in navList" :key="index" :class="{[$style.active]:index===active}">
+        <li
+          v-for="(item,index) in navList"
+          :key="index"
+          :class="{[$style.active]:index===active}"
+          @click="handleChange(index)"
+        >
           <div :class="$style.icon">
             <span :class="$style.iconfont" class="iconfont" v-html="item.icon"></span>
           </div>
@@ -55,8 +60,58 @@ export default {
       ]
     };
   },
+  created() {
+    this.handleChnnel();
+  },
   mounted() {},
-  methods: {}
+  methods: {
+    handleChange(index) {
+      this.active = index;
+      let channelChange = {
+        "0": () => {
+          this.$router.push("/");
+        },
+        "1": () => {
+          this.$router.push("/video");
+        },
+        "2": () => {
+          this.$router.push("/mine");
+        },
+        "3": () => {
+          this.$router.push("/friend");
+        },
+        "4": () => {
+          this.$router.push("/account");
+        }
+      };
+      channelChange[index]();
+    },
+    handleChnnel() {
+      let path =window.location.hash.replace("#", "");
+      if (path.indexOf("?") > -1) {
+        path = path.substring(0, path.indexOf("?"));
+      } 
+      let channelChange = {
+        "/": () => {
+          this.active = 0;
+        },
+        "/video": () => {
+          this.active = 1;
+        },
+        "/mine": () => {
+          this.active = 2;
+        },
+        "/friend": () => {
+          this.active = 3;
+        },
+        "/account": () => {
+          this.active = 4;
+        }
+      };
+
+      channelChange[path]();
+    }
+  }
 };
 </script>
 
@@ -82,7 +137,7 @@ export default {
         font-size: 50px;
         width: 60px;
         height: 60px;
-        margin:0 auto;
+        margin: 0 auto;
         .iconfont {
           font-size: 50px;
         }

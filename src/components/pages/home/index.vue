@@ -1,20 +1,5 @@
 <template>
   <div>
-    <!-- home page -->
-    <!-- <header :class="$style.header">
-      <div :class="$style.left">
-        <span :class="$style.iconfont" class="iconfont">&#xe6b7;</span>
-      </div>
-      <div :class="$style.main">
-        <div :class="$style.input">
-          <span class="iconfont" :class="$style.iconfont">&#xe66f;</span>
-          <input type="text" placeholder="搜索音乐、视频、歌词、电台">
-        </div>
-      </div>
-      <div :class="$style.right">
-        <span :class="$style.iconfont" class="iconfont">&#xe629;</span>
-      </div>
-    </header>-->
 
     <top-header :class="$style.header">
       <template v-slot:left>
@@ -102,73 +87,6 @@
         </li>
       </ul>
     </pannel-item>
-    <!-- <div :class="$style.pannel">
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-calc.jpg" alt>
-        </div>
-        <p>每日推荐</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-list.jpg" alt>
-        </div>
-        <p>歌单</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-rank.jpg" alt>
-        </div>
-        <p>排行榜</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-radio.jpg" alt>
-        </div>
-        <p>电台</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-live.jpg" alt>
-        </div>
-        <p>直播</p>
-      </div>
-    </div>
-
-    <div :class="$style.onepxline"></div>
-
-    <div :class="[$style.pannel,$style.fixed]">
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-calc.jpg" alt>
-        </div>
-        <p>发现</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-list.jpg" alt>
-        </div>
-        <p>视频</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-rank.jpg" alt>
-        </div>
-        <p>我的</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-radio.jpg" alt>
-        </div>
-        <p>朋友</p>
-      </div>
-      <div :class="$style.item" class="item">
-        <div class="icon">
-          <img src="~@/assets/images/icon-live.jpg" alt>
-        </div>
-        <p>账号</p>
-      </div>
-    </div>-->
   </div>
 </template>
 
@@ -210,7 +128,6 @@ export default {
   computed: {},
   filters: {
     formatCount(count) {
-      // console.log()
       return parseInt(count / 10000);
     }
   },
@@ -218,15 +135,12 @@ export default {
     this.initBanner();
     this.initPersonalized();
     this.initTopAlbum();
-    // this.initGetTopSong()
-    // this.swiper.slideTo(3, 1000, false);
   },
   methods: {
     initBanner() {
       getBanner().then(res => {
         if (res.data.code === 200) {
           this.banner = res.data.banners;
-          // console.log(this.banner);
         }
       });
     },
