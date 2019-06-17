@@ -1,5 +1,6 @@
 // const home = () => import("components/pages/home/index.vue");
-const home = () =>import("../components/pages/home/index.vue")
+const home = () =>import("../components/pages/home")
+const account = () =>import("../components/pages/account")
 const routers = [
   {
     path: "/",
@@ -47,5 +48,9 @@ const routers = [
     //   // }
     // ]
   },
+  {
+    path: "/account",
+    component: account,
+  }
 ];
 export default routers;
