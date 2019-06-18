@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "production") {
 let server = axios.create({
   baseURL: baseURL,
   timeout: 10000,
-  withCredentials: false
+  withCredentials: true
 });
  server.interceptors.request.use(
     config => {

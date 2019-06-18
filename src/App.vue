@@ -91,6 +91,8 @@ export default {
       if (path.indexOf("?") > -1) {
         path = path.substring(0, path.indexOf("?"));
       } 
+      console.log(path)
+      return
       let channelChange = {
         "/": () => {
           this.active = 0;
